@@ -7,7 +7,7 @@
     - In cases of invalid data, the function did not return a value despite the declared return type of `?array` (line 10 breaks).
    ![alt text](figures/image.png)
 
-2. **Improper Data Validation:**
+2. **Data Validation:**
    - The `isCompanyDataValid()` function innitially checked for an array index (`$data[0]`) instead of using the required keys (like `'name'`) exist. Also added checks for address and website, supposing that they are required fields.
     ![alt text](figures/image2.png)
 
@@ -37,3 +37,12 @@
 
 - **Final output of the refactored code is:**
     ![alt text](figures/image4.png)
+
+## Task 2: PostgreSQL
+1. **DB innitialization and docker container**
+    - The database was created using the `docker-compose.yml` file, which defines a PostgreSQL container with the required environment variables.
+    - The database schema was created using the `init.sql` file, which contains the SQL commands to create the `companies` and `normalized_companies` tables and also inserted some test companies.
+    - The `init.sql` file was mounted to the `/docker-entrypoint-initdb.d/` directory in the PostgreSQL container, such that the schema is created when the container starts.
+    - The database connection variables were defined in the `.env` file to ensure secure docker container. (should be in the gitignore file but for this assignment it is included as demonstration)
+    ![alt text](figures/image5.png)
+    ![alt text](figures/image6.png)

@@ -16,7 +16,9 @@ class CompanyClass {
         $name =  strtolower(trim($data['name']));
         $nomralizedCompanyData['name'] = ($name !== '') ? $name : null;
         
+
         // Normalize website by trimming and checking if it starts with http:// or https://
+        $cleanWebsite = strtolower(trim($data['website']));    
         if (preg_match('/^https?:\/\//i', $cleanWebsite)) {
             $host = parse_url($cleanWebsite, PHP_URL_HOST); // Get the host from the URL
             $nomralizedCompanyData['website'] = $host ?: $cleanWebsite; // If host is not available, use the full URL, maybe parse failed

@@ -34,3 +34,6 @@
 
 - **Improved Readability:**  
   The refactored code is formatted with proper indentation, consistent use of braces, included detailed comments and PHPDoc blocks, changed name of the variables to be more meaningful and added extra validation.
+
+- **Final output of the refactored code is:**
+    ![alt text](figures/image4.png)

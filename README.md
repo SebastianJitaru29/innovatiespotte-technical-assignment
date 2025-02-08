@@ -46,6 +46,7 @@
     - The database connection variables were defined in the `.env` file to ensure secure docker container. (should be in the gitignore file but for this assignment it is included as demonstration)
     ![alt text](figures/image5.png)
     ![alt text](figures/image6.png)
+    
 2. **Implement DB controller, queries.php and runQueries.php files**
     - The `queries.php` file contains the SQL queries to interact with the database, such as inserting, updating, and selecting data from the `companies` and `normalized_companies` tables.
     - The `runQueries.php` file includes the necessary code to run the queries and display the results.

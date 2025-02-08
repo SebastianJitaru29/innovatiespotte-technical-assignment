@@ -1,33 +1,40 @@
 <?php
 class CompanyClass {
+      /**
+     * Normalizes and validates company data, the name, website, and address.
+     *
+     * @param array $data Input company data.
+     * @return array|error Normalized data or error if validation fails.
+     */
     public function normalizeCompanyData(array $data): ?array {
-        $c = [];
-        
         if (!$this->isCompanyDataValid($data)) {
-            return;
+            return ['error' => "Company data is not valid. A 'name', 'address' and 'website' must be provided for the company."];
+        }
+        $nomralizedCompanyData = [];
+        
+        // Normalize name 
+        $name =  strtolower(trim($data['name']));
+        $nomralizedCompanyData['name'] = ($name !== '') ? $name : null;
+        
+        // Normalize website by trimming and checking if it starts with http:// or https://
+        if (preg_match('/^https?:\/\//i', $cleanWebsite)) {
+            $host = parse_url($cleanWebsite, PHP_URL_HOST); // Get the host from the URL
+            $nomralizedCompanyData['website'] = $host ?: $cleanWebsite; // If host is not available, use the full URL, maybe parse failed
+        } else {
+            // TBD: Decide what to do if the website does not start with http:// or https://
+            $nomralizedCompanyData['website'] = $cleanWebsite;
         }
         
-        $c['name'] = strtolower(trim($data['name']));
-        (preg_match('/http?:\/\//i', $cleanWebsite))
-            ? $c['website'] = parse_url($data['website'], PHP_URL_HOST)
-            : $c['website'] = $data['website'];
-        
-        if ($c['website'] == null) {
-            unset($c['website']);
-        }
-        
-        if (isset($data['address']))
-            $c['address'] = trim($data['address']);
-        
-        if (empty($c['address'])) {
-            $c['address'] = null;
-        }
-        
-        return $c;
+        // Normalize address
+        $address = trim($data['address']);
+        $nomralizedCompanyData['address'] = ($address !== '') ? $address : null;
+    
+        return $nomralizedCompanyData;
     }
-        private function isCompanyDataValid(array $data): bool{
-            return isset($data[0]) && isset($data['address']);
-        }
+
+    private function isCompanyDataValid(array $data): bool{
+        return isset($data['name']) && isset($data['address']) && isset($data['website']);
+    }
 }
 // Test Data
 $input = [

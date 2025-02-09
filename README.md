@@ -65,7 +65,7 @@
 ## Task 3: Node function to fetch data from API's
   - For this task the file fetchData.js in task3 folder was created. This file contains a function that fetches data from the provided API's combines their output, logs the combination and saves it into a combinedData.json file. 
   - The function uses the `axios` library to make HTTP requests to the API's(No need for AbortController as it has built in feature, cleaner code) and the `fs` module to write the combined data to a file.
-  - The function is asynchronous and uses `Promise.allSettled()` to fetch data from both API's concurrently. Using allSettled instead of all so that the outcome 
+  - The function is asynchronous and uses `Promise.allSettled()` to fetch data from API's concurrently. Using `allSettled` instead of `all` so that the outcome 
   all promises is known and all promises are executed. If one fails the error is not handled immediatly.
   - The function logs the combined data to the console and writes it to a file named `combinedData.json`.
   - The function was tested by running the `fetchData.js` file using Node.js.

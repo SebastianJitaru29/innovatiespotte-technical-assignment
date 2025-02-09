@@ -1,6 +1,6 @@
 <?php
 /**
- * Returns the SQL query to identify potential duplicate companies.
+ * Returns the SQL query to identify duplicate companies.
  *
  * @return string The SQL query.
  */

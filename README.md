@@ -48,6 +48,7 @@
   ![alt text](figures/image6.png)
 
 2. **Implement DB controller, queries.php and runQueries.php files**
+  - The files are created following basic architectural principles, separating the database connection, queries, and execution logic. following the MVC pattern (without view as it is not needed for this assignment).
   - The `queries.php` file contains the SQL queries to interact with the database, such as inserting, updating, and selecting data from the `companies` and `normalized_companies` tables.
   - The `runQueries.php` file includes the necessary code to run the queries and display the results.
   - The singleton controller file `dbController.php` is used to connect to the database and execute the queries. (Implemented it as a singleton as shown in php documentation however later found out that in PHP singletons are not used)

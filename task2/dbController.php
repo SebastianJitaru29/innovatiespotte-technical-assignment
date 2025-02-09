@@ -1,15 +1,8 @@
 <?php
 class dbController {
-    /**
-     * The singleton instance.
-     * @var dbController|null
-     */
+    
     private static $instance = null;
 
-    /**
-     * The PostgreSQL connection resource.
-     * @var resource
-     */
     private $connection;
 
     // Database configuration variables.
@@ -20,7 +13,7 @@ class dbController {
     private $dbpass;
 
     /**
-     * Returns the singleton instance of dbController.
+     * Returns the singleton instance of dbController (source: php documentation).
      *
      * @param string|null $envFilePath Path to the .env file.
      *                               Must be provided on first initialization.
@@ -81,7 +74,7 @@ class dbController {
             if (preg_match("/([^=]+)=(.*)/", $line, $matches)) {
                 $key = trim($matches[1]);
                 $value = trim($matches[2]);
-                // Remove surrounding quotes if they exist
+                // Remove surrounding quotes if exist
                 $value = trim($value, "\"'");
                 putenv("$key=$value");
             }

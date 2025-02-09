@@ -1,6 +1,8 @@
 <?php
 /**
  * Returns the SQL query to identify potential duplicate companies.
+ *
+ * @return string The SQL query.
  */
 function getDuplicateCompaniesQuery() {
     return "
@@ -19,7 +21,9 @@ function getDuplicateCompaniesQuery() {
 }
 
 /**
- * Returns the SQL query to insert normalized companies.
+ * Returns the SQL query to normalize company data and insert it into the normalized_companies table.
+ *
+ * @return string The SQL query.
  */
 function getNormalizeCompaniesQuery() {
     return "
@@ -59,7 +63,9 @@ function getNormalizeCompaniesQuery() {
 }
 
 /**
- * Returns the SQL query to get statistics on the number of companies per source.
+ * Returns the SQL query to get statistics on the sources of companies.
+ *
+ * @return string The SQL query.
  */
 function getSourceStatisticsQuery() {
     return "

@@ -54,6 +54,7 @@
   - The `runQueries.php` file includes the necessary code to run the queries and display the results.
   - The singleton controller file `dbController.php` is used to connect to the database and execute the queries. (Implemented it as a singleton as shown in php documentation however later found out that in PHP singletons are not used)
   - For testing purposes 6 entries where inserted into companies table, 3 being dupplication of first 3. In the following figure we can see the state of the database after running the `runQueries.php` file.
+  - Imports have been done without dependency injection as it is only demo
   ![alt text](figures/image7.png)
   - An the output after running the queries:
     - Duplicate query:

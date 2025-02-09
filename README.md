@@ -44,6 +44,7 @@
   - The database schema was created using the `init.sql` file, which contains the SQL commands to create the `companies` and `normalized_companies` tables and also inserted some test companies.
   - The `init.sql` file was mounted to the `/docker-entrypoint-initdb.d/` directory in the PostgreSQL container, such that the schema is created when the container starts.
   - The database connection variables were defined in the `.env` file to ensure secure docker container. (should be in the gitignore file but for this assignment it is included as demonstration)
+  - Subjectiveley decided to manually load .env instead of third-party libraries such as dotenv.
   ![alt text](figures/image5.png)
   ![alt text](figures/image6.png)
 
@@ -71,3 +72,17 @@
   - The function logs the combined data to the console and writes it to a file named `combinedData.json`.
   - The function was tested by running the `fetchData.js` file using Node.js.
   ![alt text](figures/image11.png)
+
+## Sources and References
+- [PHP Documentation](https://www.php.net/docs.php)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+- [JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Axios Documentation](https://axios-http.com/docs/intro)
+- [File System (fs) Documentation](https://nodejs.org/api/fs.html)
+- [Promise.allSettled() Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- For syntax correction of php code: [PHP The Right Way](https://phptherightway.com/) with OpenAI model o3-mini 
+- For debugging [StackOverflow](https://stackoverflow.com/questions/4595964/is-there-a-use-case-for-singletons-with-database-access-in-php) and php documentation was used alongside with OpenAI model o3-mini.
+- For architecture of the code, MVC pattern was used as a 
+[Reference](https://www.martinfowler.com/architecture/)

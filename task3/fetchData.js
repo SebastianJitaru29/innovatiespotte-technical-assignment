@@ -1,4 +1,5 @@
 const fs = require('fs');
+const axios = require('axios');
 
 /**
  * Fetch JSON data from a list of API URLs and combine the results.
@@ -7,35 +8,26 @@ const fs = require('fs');
  * @param {string[]} apiUrls - An array of API URLs to fetch data from.
  * @returns {Promise<Array>} A promise that resolves to a combined array of JSON data.
  */
-
 async function fetchJSONFromAPIs(apiUrls) {
+  // Map each URL to an axios call with its own timeout and error handling.
 
-  // Map each URL to a fetch call wrapped with its own timeout and error handling.
-  const results = await Promise.allSettled(
+  const results = await Promise.allSettled( //Using allSettled to wait for all promises (Explained in README why I used allSettled)
     apiUrls.map(async (url) => {
-
-      const controller = new AbortController(); // Create an AbortController for this request. (From documentation)
-
-      const timeoutId = setTimeout(() => controller.abort(), 5000);
-
       try {
-        const response = await fetch(url, { signal: controller.signal });
-        clearTimeout(timeoutId); 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
+        const response = await axios.get(url, { timeout: 5000 }); //Using axios to fetch data (Explained in README why I used axios)
+        return response.data; 
       } catch (error) {
         console.error(`Error fetching ${url}: ${error.message}`);
-        return null; // Return null for failed requests. Not error as other links may work
+        return null; // Return null for failed requests
       }
     })
   );
 
+  // Combine all successful (non-null) results into a single array.
   const combinedData = [];
   for (const result of results) {
     if (result.status === "fulfilled" && result.value !== null) {
-      Array.isArray(result.value)        // If the fetched JSON is an array, merge its items; otherwise, push the object.
+      Array.isArray(result.value)
         ? combinedData.push(...result.value)
         : combinedData.push(result.value);
     }

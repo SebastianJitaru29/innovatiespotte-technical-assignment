@@ -50,7 +50,7 @@
 2. **Implement DB controller, queries.php and runQueries.php files**
   - The `queries.php` file contains the SQL queries to interact with the database, such as inserting, updating, and selecting data from the `companies` and `normalized_companies` tables.
   - The `runQueries.php` file includes the necessary code to run the queries and display the results.
-  - The singleton controller file `dbController.php` is used to connect to the database and execute the queries. (Implemented it as a singleton as shown in php documentation however later found out that in PHP singletons are not used :/)
+  - The singleton controller file `dbController.php` is used to connect to the database and execute the queries. (Implemented it as a singleton as shown in php documentation however later found out that in PHP singletons are not used)
   - For testing purposes 6 entries where inserted into companies table, 3 being dupplication of first 3. In the following figure we can see the state of the database after running the `runQueries.php` file.
   ![alt text](figures/image7.png)
   - An the output after running the queries:
@@ -64,8 +64,9 @@
 
 ## Task 3: Node function to fetch data from API's
   - For this task the file fetchData.js in task3 folder was created. This file contains a function that fetches data from the provided API's combines their output, logs the combination and saves it into a combinedData.json file. 
-  - The function uses the `axios` library to make HTTP requests to the API's and the `fs` module to write the combined data to a file.
-  - The function is asynchronous and uses `Promise.all()` to fetch data from both API's concurrently.
+  - The function uses the `axios` library to make HTTP requests to the API's(No need for AbortController as it has built in feature, cleaner code) and the `fs` module to write the combined data to a file.
+  - The function is asynchronous and uses `Promise.allSettled()` to fetch data from both API's concurrently. Using allSettled instead of all so that the outcome 
+  all promises is known and all promises are executed. If one fails the error is not handled immediatly.
   - The function logs the combined data to the console and writes it to a file named `combinedData.json`.
   - The function was tested by running the `fetchData.js` file using Node.js.
   ![alt text](figures/image11.png)

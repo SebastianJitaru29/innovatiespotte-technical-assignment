@@ -24,7 +24,7 @@ class CompanyClass {
             $nomralizedCompanyData['website'] = $host ?: $cleanWebsite; // If host is not available, use the full URL, maybe parse failed
         } else {
             // TBD: Decide what to do if the website does not start with http:// or https://
-            $nomralizedCompanyData['website'] = $cleanWebsite;
+            $nomralizedCompanyData['website'] = $cleanWebsite; //Originaly this was done however not clear if this is the right approach
         }
         
         // Normalize address
@@ -33,7 +33,12 @@ class CompanyClass {
     
         return $nomralizedCompanyData;
     }
-
+    /**
+     * Validates company data is complete.
+     *
+     * @param array $data Input company data.
+     * @return bool True if all fields are provided, false otherwise.
+     */	
     private function isCompanyDataValid(array $data): bool{
         return isset($data['name']) && isset($data['address']) && isset($data['website']);
     }

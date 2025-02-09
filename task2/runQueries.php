@@ -30,6 +30,12 @@ while ($row = pg_fetch_assoc($result)) {
 }
 pg_free_result($result);
 
-
+// --- Query 3: Normalize companies ---
+$normQuery = getNormalizeCompaniesQuery();
+echo "\nNormalize Companies Query:\n$normQuery\n\n";
+$result = $dbController->executeQuery($normQuery);
+echo "Normalized Companies:\n";
+echo "Rows affected: " . pg_affected_rows($result) . "\n";
+pg_free_result($result);
 // Disconnect from the database.
 $dbController->disconnect();

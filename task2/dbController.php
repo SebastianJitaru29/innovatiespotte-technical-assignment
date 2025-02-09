@@ -94,12 +94,11 @@ class dbController {
         $this->dbuser = getenv('POSTGRES_USER');
         $this->dbpass = getenv('POSTGRES_PASSWORD');
 
-        // Debug output (optional)
-        echo "DB_HOST: {$this->dbhost}\n";
-        echo "DB_PORT: {$this->dbport}\n";
-        echo "POSTGRES_DB: {$this->dbname}\n";
-        echo "POSTGRES_USER: {$this->dbuser}\n";
-        echo "POSTGRES_PASSWORD: {$this->dbpass}\n";
+        // echo "DB_HOST: {$this->dbhost}\n";
+        // echo "DB_PORT: {$this->dbport}\n";
+        // echo "POSTGRES_DB: {$this->dbname}\n";
+        // echo "POSTGRES_USER: {$this->dbuser}\n";
+        // echo "POSTGRES_PASSWORD: {$this->dbpass}\n";
 
         if (!$this->dbname || !$this->dbuser || !$this->dbpass) {
             die("Database configuration is incomplete in .env file.\n");

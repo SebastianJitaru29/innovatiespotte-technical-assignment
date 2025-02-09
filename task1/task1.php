@@ -24,7 +24,7 @@ class CompanyClass {
             $nomralizedCompanyData['website'] = $host ?: $cleanWebsite; // If host is not available, use the full URL, maybe parse failed
         } else {
             // TBD: Decide what to do if the website does not start with http:// or https://
-            $nomralizedCompanyData['website'] = $cleanWebsite; //In the provided code this was done however not clear if this is the right approach
+            $nomralizedCompanyData['website'] = $cleanWebsite; //In the provided code this was done however not clear if this is the right approach (Should URL still be saved?)
         }
         
         // Normalize address

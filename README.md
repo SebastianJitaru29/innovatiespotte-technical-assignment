@@ -82,7 +82,7 @@
 - [Promise.allSettled() Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
 - [Docker Documentation](https://docs.docker.com/)
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
-- For syntax correction of php code: [PHP The Right Way](https://phptherightway.com/) with OpenAI model o3-mini 
+- For syntax correction of php code: [PHP The Right Way](https://phptherightway.com/) with [OpenAI model o3-mini](https://openai.com/index/openai-o3-mini/) 
 - For debugging [StackOverflow](https://stackoverflow.com/questions/4595964/is-there-a-use-case-for-singletons-with-database-access-in-php) and php documentation was used alongside with OpenAI model o3-mini.
 - For architecture of the code, MVC pattern was used as a 
 [Reference](https://www.martinfowler.com/architecture/)
